@@ -10,7 +10,9 @@ class ProdConfig(Config):
   '''
   production config class
   '''
-  pass
+  SQLALCHEMY_TRACK_MODIFICATIONS = False
+  SECRET_KEY = os.environ.get('SECRET_KEY')
+  SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")    
 
 class DevConfig(Config):
   '''
@@ -18,6 +20,7 @@ class DevConfig(Config):
   '''
   SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:password@localhost/sendit'
   ##change the username to your username and password
+  DEBUG = True
 
 
 class TestConfig(Config):
