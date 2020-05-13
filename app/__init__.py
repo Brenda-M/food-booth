@@ -1,9 +1,11 @@
 from flask import Flask
 from config import config_options
 from flask_sqlalchemy import SQLAlchemy
+from flask_admin import Admin
 
 
 db = SQLAlchemy()
+admin = Admin()
 
 
 # create an application factory
@@ -26,6 +28,7 @@ def create_app(config_name):
 
     # initialiaze the database
     db.init_app(app)
+    admin.init_app(app)
 
     # register your blueprints here
     from app.main import main

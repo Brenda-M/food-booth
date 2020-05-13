@@ -1,6 +1,7 @@
+from . import db
+from werkzeug.security import generate_password_hash,check_password_hash
 
-
-class User(UserMixin,db.Model):
+class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer ,primary_key = True)
@@ -38,7 +39,7 @@ class Menu(db.Model):
 
 
 class Service(db.Model):
-    __tablename__ = 'orders'
+    __tablename__ = 'services'
 
     id = db.Column(db.Integer ,primary_key = True)
     name =  db.Column(db.String(255), index = True)
