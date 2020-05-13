@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 from . import db,login_manager
 from flask_login import current_user, UserMixin
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_admin.contrib.sqla import ModelView
 
+=======
+from . import db
+>>>>>>> d3ced29... register a delivery blueprint
 
 
 @login_manager.user_loader
