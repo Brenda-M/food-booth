@@ -1,10 +1,18 @@
 from . import deliv
+<<<<<<< HEAD
 from app import db
 from flask import render_template, url_for, redirect, request, flash
 from flask_login import login_required, current_user, login_user, logout_user
 from app.models import Menu, Address, User, Service, Order
 from .forms import Delivery
 from app.email import order_email
+=======
+from flask import render_template, url_for, redirect
+from flask_login import login_required
+from app.models import Menu, Address, User
+from .forms import Delivery
+from .email import order_email
+>>>>>>> 3b0eb66... populate the form with the users phone number
 
 @deliv.route('/menu')
 def menu():
