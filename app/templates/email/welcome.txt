@@ -1,0 +1,2 @@
+Hello {{user.username}}, welcome to Food-booth. 
+You can place an order, book a table or request for delivery.

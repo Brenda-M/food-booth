@@ -4,7 +4,7 @@ class Config:
   '''
   config class to be inheritted by other class
   '''
-  pass
+  UPLOADED_PHOTOS_DEST ='app/static/photos'
 
 class ProdConfig(Config):
   '''
