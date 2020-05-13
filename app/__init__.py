@@ -30,8 +30,10 @@ def create_app(config_name):
     # register your blueprints here
     from app.main import main
     from app.auth import auth
+    from app.deliv import deliv
 
     app.register_blueprint(main)
     app.register_blueprint(auth)
+    app.register_blueprint(deliv)
 
     return app
