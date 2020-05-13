@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h1> Menu page </h1>
+  {% for item in items %}
+  <div class="card">
+    <div class="card-header">
+      {{ item.name }}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>{{ item.description }}</p>
+        <footer class="blockquote-footer"> Price: {{ item.price }}</footer> <a class="btn btn-info" href="#">Order</a></footer>
+      </blockquote>
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+
+  {% endblock %}
