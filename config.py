@@ -29,8 +29,7 @@ class DevConfig(Config):
   '''
   development config class
   '''
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://hamisi:hamisi@localhost/sendit'
-  FLASK_ADMIN_SWATCH ='cerulean'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Bm19952810@localhost/foodbooth'
   ##change the username to your username and password
   DEBUG = True
 
