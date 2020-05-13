@@ -1,0 +1,10 @@
+Hello {{ user.username }},
+
+Thank you for ordering from Food Booth. Your order has been recieved and will be arriving shortly.
+
+Bon Apetite
+
+Warm regards,
+
+Food Booth team
+
