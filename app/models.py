@@ -1,5 +1,6 @@
 from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
+from flask_admin.contrib.sqla import ModelView
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -54,3 +55,7 @@ class Order(db.Model):
     user_id =  db.Column(db.Integer, db.ForeignKey('users.id'))
     menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
     service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
+
+class MyModelView(ModelView):
+    def is_accessible(self):
+        return True
