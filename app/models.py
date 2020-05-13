@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from . import db,login_manager
 from flask_login import current_user, UserMixin
 from werkzeug.security import generate_password_hash,check_password_hash
@@ -27,46 +26,16 @@ class User(UserMixin,db.Model):
 	def password(self, password):
 		self.pass_secure = generate_password_hash(password)
 
-=======
-from . import db
-from flask_login import UserMixin
-
-class User(UserMixin,db.Model):
-	__tablename__ = 'users'
-
-	id = db.Column(db.Integer ,primary_key = True)
-	username = db.Column(db.String(255), index = True)
-	email = db.Column(db.String(255),unique = True, index = True)
-	pass_secure = db.Column(db.String(255))
-	phone_number = db.Column(db.Integer)
-
-	orders  = db.relationship('Order', backref = 'user' , lazy = 'dynamic')
-
-	@property
-	def password(self):
-		raise AttributeError('You cannot read the password attribute')
-
-	@password.setter
-	def password(self, password):
-		self.pass_secure = generate_password_hash(password)
->>>>>>> 346a448... query database to display menu items on page
 
 	def verify_password(self,password):
 		return check_password_hash(self.pass_secure,password)
 
-<<<<<<< HEAD
 	def save(self):
 		db.session.add(self)
 		db.session.commit()
 	
 	def __repr__(self):
 		return f'User {self.username}'
-=======
-	def verify_password(self,password):
-		return check_password_hash(self.pass_secure,password)
-	
-
->>>>>>> 346a448... query database to display menu items on page
 			
 class Address(db.Model):
 	id = db.Column(db.Integer, primary_key = True) 
@@ -78,32 +47,16 @@ class Address(db.Model):
 
 class Menu(db.Model):
 	__tablename__ = 'menus'
-<<<<<<< HEAD
 
 	id = db.Column(db.Integer ,primary_key = True)
 	name = db.Column(db.String(255), index = True)
 	description =  db.Column(db.String(255), index = True)
 	price = db.Column(db.Integer)
 	orders  = db.relationship('Order', backref = 'menu' , lazy = 'dynamic')
-<<<<<<< HEAD
-
-=======
->>>>>>> 3496579... add cart
 
 
 class Service(db.Model):
 	
-=======
-
-	id = db.Column(db.Integer ,primary_key = True)
-	name = db.Column(db.String(255), index = True)
-	description =  db.Column(db.String(255), index = True)
-	price = db.Column(db.Integer)
-	orders  = db.relationship('Order', backref = 'menu' , lazy = 'dynamic')
-
-
-class Service(db.Model):
->>>>>>> 346a448... query database to display menu items on page
 	__tablename__ = 'services'
 
 	id = db.Column(db.Integer ,primary_key = True)
@@ -119,7 +72,6 @@ class Order(db.Model):
 	user_id =  db.Column(db.Integer, db.ForeignKey('users.id'))
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
-<<<<<<< HEAD
 
 
 class MyModelView(ModelView):
@@ -131,8 +83,10 @@ class MyModelView(ModelView):
 
 			
 	def not_auth(self):
-		return 'You are not authorized to the admin dashboard'
-=======
+		return 'You are not authorized to the admin dashboard
 
-		
->>>>>>> 346a448... query database to display menu items on page
+	def requestOrder(user, item, service):
+		placeOrder = Order(user=user_id, service=service_id, item=menu_id)
+		db.session.add(placedOrder)
+		db.session.commit()
+
