@@ -42,6 +42,12 @@ class Menu(db.Model):
 	description =  db.Column(db.String(255), index = True)
 	price = db.Column(db.Integer)
 	orders  = db.relationship('Order', backref = 'menu' , lazy = 'dynamic')
+	cartitems = db.relationship('CartItem', backref='menu', lazy='dynamic')
+
+class CartItem(db.Model):
+	__tablename__="cartitems"
+	id = db.Column(db.Integer, primary_key=Tru)
+	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 
 
 class Service(db.Model):
@@ -61,4 +67,7 @@ class Order(db.Model):
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
 
-		
+	def requestOrder(user, item, service):
+		placeOrder = Order(user=user_id, service=service_id, item=menu_id)
+		db.session.add(placedOrder)
+		db.session.commit()
