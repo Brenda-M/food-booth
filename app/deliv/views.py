@@ -21,3 +21,11 @@ def deliv_info():
     db.session.add(deliv_address)
     db.session.commit()
 
+  users = User.query.all()
+    for user in users:
+      if user.email == current_user.email:
+        delivery_email("Order Confirmation", "email/new_order", user.email, user=user)
+
+        flash('Your order has been received! You will receive a confirmation email shortly', 'success')
+
+        
