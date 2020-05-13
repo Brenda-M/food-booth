@@ -3,6 +3,7 @@
 
 <head>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
     <script>
@@ -27,6 +28,8 @@
 <<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> 346a448... query database to display menu items on page
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -34,12 +37,16 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&family=Noto+Serif&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<<<<<<< HEAD
   <script src="app/static/js/cart.js" async></script>
+=======
+>>>>>>> 346a448... query database to display menu items on page
   {% if title %}
   <title> {{ title }}</title>
   {% else %}
   <title> Welcome to Panabee </title>
   {% endif %}
+<<<<<<< HEAD
 >>>>>>> 0a369e4... add cart
 </head>
 
@@ -89,6 +96,40 @@
 
 =======
 =======
+=======
+</head>
+
+<body>
+
+  <!-- Navbar block-->
+  {% block navbar %}
+  {% include 'navbar.html' %}
+  {% endblock navbar %}
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}}">
+      {{ message }}
+    </div>
+    {% endfor %}
+
+    {% endif %}
+    {% endwith %}
+  </div>
+
+
+  <!--Content block-->
+  {% block content %}
+
+  {% endblock content %}
+
+
+
+
+
+>>>>>>> 346a448... query database to display menu items on page
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -98,7 +139,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+<<<<<<< HEAD
 >>>>>>> 0a369e4... add cart
 </body>
 >>>>>>> 3496579... add cart
+=======
+</body>
+
+>>>>>>> 346a448... query database to display menu items on page
 </html>
