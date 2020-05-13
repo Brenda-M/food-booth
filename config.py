@@ -29,8 +29,12 @@ class DevConfig(Config):
   '''
   development config class
   '''
+<<<<<<< HEAD
   SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kennedy:Kennedy128@localhost/foodbooth'
   FLASK_ADMIN_SWATCH ='cerulean'
+=======
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Bm19952810@localhost/foodbooth'
+>>>>>>> 0424521... query database to display menu items on page
   ##change the username to your username and password
   DEBUG = True
 
