@@ -1,7 +1,8 @@
 from . import deliv
-from flask import render_template, url_for, redirect
+from app import db
+from flask import render_template, url_for, redirect, request
 from flask_login import login_required, current_user, login_user, logout_user
-from app.models import Menu, Address, User
+from app.models import Menu, Address, User, Service, Order
 from .forms import Delivery
 from app.email import order_email
 
@@ -12,8 +13,29 @@ def menu():
 
   return render_template('deliv/menu.html', title = "Food gallery", items=menus)
 
+@deliv.route('/menu', methods=['POST'])
+def createOrder():
+  cartItems = request.get_json()
 
-@deliv.route('/delivery')
+  # get delivery service id
+  delivery_service = db.session.query(Service).filter_by(name="delivery")
+  delivery_id =  delivery_service.first().id
+
+  orders = []
+
+  # save order
+  for item in cartItems:
+    item_id = item.get(id)
+    orders.append(Order(user_id=current_user.id, menu_id=item_id, service_id=delivery_id))
+
+  db.session.add_all(orders)
+  db.session.commit()
+
+  menus = Menu.query.all()
+  return render_template('deliv/menu.html', title = "Food gallery", items=menus)
+
+
+@deliv.route('/delivery', methods=['GET', 'POST'])
 def deliv_info():
 
   form = Delivery()
@@ -29,21 +51,10 @@ def deliv_info():
   for user in users:
     if user.email != current_user.email:
       order_email("Order Confirmation", "email/new_order", user.email, user=user)
-
-  flash('Your order has been received! You will receive a confirmation email shortly', 'success')
+      
+    flash('Your order has been received! You will receive a confirmation email shortly', 'success')
   
-  return redirect(url_for('.menu'))
+    return redirect(url_for('.menu'))
   
   return render_template('deliv/delivery_info.html', title="Delivery Details", form=form)
 
-@deliv.route('/take_away')
-def takeaway():
-  users = User.query.all()
-  for user in users:
-    if user.email == current_user.email:
-      order_email("Order Confirmation", "email/takeaway_order", user.email, user=user)
-  flash('Your order has been received! You will receive a confirmation email shortly', 'success')
-
-  return redirect(url_for('.main'))
-  
-  return render_template('delivery_info.html', title="Delivery Details", form=form)
