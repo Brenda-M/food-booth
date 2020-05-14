@@ -11,7 +11,7 @@ def main():
   
   menus = Menu.query.all()
 
-  return render_template('menu.html', title = "Food gallery", items=menus)
+  return render_template('food.html', title = "Food gallery", items=menus)
 
 @deliv.route('/reserve')
 def deliv_info():
