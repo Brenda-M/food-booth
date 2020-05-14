@@ -12,6 +12,7 @@ def menu():
 
   return render_template('deliv/menu.html', title = "Food gallery", items=menus)
 
+
 @deliv.route('/delivery')
 def deliv_info():
 
