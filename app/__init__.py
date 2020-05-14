@@ -39,26 +39,35 @@ def create_app(config_name):
     db.init_app(app)
     mail.init_app(app)
     login_manager.init_app(app)
+<<<<<<< HEAD
     bootstrap.init_app(app)
   
 
 
     from .models import Service
 
+=======
+>>>>>>> 3496579... add cart
 
 
     # register your blueprints here
     from app.main import main
+<<<<<<< HEAD
     from app.adm import adm
     from app.reserve import reserve
+=======
+>>>>>>> 3496579... add cart
     from app.deliv import deliv
     from app.auth import auth
     from app.adm import adm
 
     app.register_blueprint(main)
+<<<<<<< HEAD
     app.register_blueprint(auth)
     app.register_blueprint(adm)
     app.register_blueprint(reserve)
+=======
+>>>>>>> 3496579... add cart
     app.register_blueprint(deliv)
     app.register_blueprint(adm)
 
