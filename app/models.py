@@ -10,6 +10,7 @@ class User(db.Model):
     email = db.Column(db.String(255),unique = True, index = True)
     pass_secure = db.Column(db.String(255))
     phone_number = db.Column(db.Integer)
+    is_admin = db.Column(db.Boolean)
 
     orders  = db.relationship('Order', backref = 'user' , lazy = 'dynamic')
 
@@ -56,6 +57,17 @@ class Order(db.Model):
     menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
     service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
 
+
+    
+
+# Admin
 class MyModelView(ModelView):
     def is_accessible(self):
-        return True
+        if current_user.is_admin:
+            return current_user.is_authenticated
+        else:
+            return False
+
+        
+    def not_auth(self):
+        return 'You are not authorized to the admin dashboard'

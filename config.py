@@ -4,7 +4,7 @@ class Config:
   '''
   config class to be inheritted by other class
   '''
-  pass
+  SECRET_KEY ='foodbooth'
 
 class ProdConfig(Config):
   '''
