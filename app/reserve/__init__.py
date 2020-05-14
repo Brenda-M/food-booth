@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-deliv = Blueprint('deliv', __name__)
+reserve = Blueprint('reserve', __name__)
 
 from . import views

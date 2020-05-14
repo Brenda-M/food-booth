@@ -46,7 +46,7 @@ class Menu(db.Model):
 
 class CartItem(db.Model):
 	__tablename__="cartitems"
-	id = db.Column(db.Integer, primary_key=Tru)
+	id = db.Column(db.Integer, primary_key=True)
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 
 
@@ -69,5 +69,17 @@ class Order(db.Model):
 
 	def requestOrder(user, item, service):
 		placeOrder = Order(user=user_id, service=service_id, item=menu_id)
+		db.session.add(placedOrder)
+		db.session.commit()
+  class Book(db.Model):
+    	__tablename__ = 'Book'
+
+	id = db.Column(db.Integer ,primary_key = True)
+	user_id =  db.Column(db.Integer, db.ForeignKey('users.id'))
+	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
+	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
+
+	def requestOrder(user, item, service):
+		bookOrder = Order(user=user_id, service=service_id, item=menu_id)
 		db.session.add(placedOrder)
 		db.session.commit()

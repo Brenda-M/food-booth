@@ -26,11 +26,11 @@ def deliv_info():
     current_user.phone_number = form.phone_number.data 
 
   users = User.query.all()
-    for user in users:
+  for user in users:
       if user.email == current_user.email:
         delivery_email("Order Confirmation", "email/new_order", user.email, user=user)
 
-    flash('Your table has been booked! You will receive a confirmation email shortly', 'success')
+        flash('Your table has been booked! You will receive a confirmation email shortly', 'success')
     
     return redirect(url_for('.main'))
   
