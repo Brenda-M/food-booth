@@ -40,17 +40,10 @@ def create_app(config_name):
     # register your blueprints here
     from app.main import main
     from app.auth import auth
-    from app.adm import adm
+    from app.deliv import deliv
 
     app.register_blueprint(main)
     app.register_blueprint(auth)
-    app.register_blueprint(adm)
-
-
-    login_manager.init_app(app)
-    bootstrap.init_app(app)
-    db.init_app(app)
-    configure_uploads(app,photos)
-    mail.init_app(app)
+    app.register_blueprint(deliv)
 
     return app
