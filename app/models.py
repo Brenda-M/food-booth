@@ -1,24 +1,10 @@
-<<<<<<< HEAD
 from . import db,login_manager
 from flask_login import current_user, UserMixin
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_admin.contrib.sqla import ModelView
 
-
-
 @login_manager.user_loader
 def load_user(user_id):
-<<<<<<< HEAD
-=======
-    return User.query.get(int(user_id)) 
-=======
-from app import db, login_manager
-from flask_login import UserMixin
->>>>>>> 0a369e4... add cart
-
-@login_manager.user_loader
-def load_user(user_id):
->>>>>>> 3496579... add cart
 	return User.query.get(int(user_id))
 
 class User(UserMixin,db.Model):
@@ -91,7 +77,6 @@ class Order(db.Model):
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
 
-<<<<<<< HEAD
 
 class MyModelView(ModelView):
 	def is_accessible(self):
@@ -103,5 +88,3 @@ class MyModelView(ModelView):
 			
 	def not_auth(self):
 		return 'You are not authorized to the admin dashboard'
-=======
->>>>>>> 0a369e4... add cart
