@@ -10,6 +10,7 @@ from flask_login import LoginManager
 
 admin = Admin()
 db = SQLAlchemy()
+bootstrap = Bootstrap()
 mail = Mail()
 login_manager = LoginManager()
 bootstrap = Bootstrap()
@@ -36,6 +37,7 @@ def create_app(config_name):
 
     # initialiaze the database
     admin.init_app(app)
+    bootstrap.init_app(app)
     db.init_app(app)
     mail.init_app(app)
     login_manager.init_app(app)
@@ -64,6 +66,11 @@ def create_app(config_name):
         db.session.commit()
 =======
     app.register_blueprint(deliv)
+<<<<<<< HEAD
 >>>>>>> d3ced29... register a delivery blueprint
+=======
+    app.register_blueprint(auth)
+    app.register_blueprint(adm)
+>>>>>>> 859a5c0... add a cart remove item function
 
     return app
