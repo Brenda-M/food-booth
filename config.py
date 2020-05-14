@@ -24,6 +24,7 @@ class DevConfig(Config):
   '''
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") 
 
 =======
@@ -32,6 +33,10 @@ class DevConfig(Config):
 =======
   SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Bm19952810@localhost/foodbooth'
 >>>>>>> 346a448... query database to display menu items on page
+=======
+  SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") 
+
+>>>>>>> fe7a7e4... update requirements file
   ##change the username to your username and password
   DEBUG = True
 

@@ -36,5 +36,9 @@ six==1.14.0
 SQLAlchemy==1.3.16
 urllib3==1.25.9
 visitor==0.1.3
+<<<<<<< HEAD
 Werkzeug==0.15.3
+=======
+Werkzeug==0.16.1
+>>>>>>> fe7a7e4... update requirements file
 WTForms==2.3.1
