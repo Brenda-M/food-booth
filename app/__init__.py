@@ -49,7 +49,6 @@ def create_app(config_name):
 
     # register your blueprints here
     from app.main import main
-    from app.auth import auth
     from app.adm import adm
     from app.reserve import reserve
     from app.deliv import deliv
@@ -61,7 +60,6 @@ def create_app(config_name):
     app.register_blueprint(adm)
     app.register_blueprint(reserve)
     app.register_blueprint(deliv)
-    app.register_blueprint(auth)
     app.register_blueprint(adm)
 
     # create initial db values
