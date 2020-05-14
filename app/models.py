@@ -1,8 +1,13 @@
-from . import db
+from . import db,login_manager
+from flask_login import current_user, UserMixin
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_admin.contrib.sqla import ModelView
 
-class User(db.Model):
+@login_manager.user_loader 
+def load_user(user_id):
+    return User.query.get(int(user_id)) 
+
+class User(UserMixin,db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer ,primary_key = True)
@@ -10,7 +15,7 @@ class User(db.Model):
     email = db.Column(db.String(255),unique = True, index = True)
     pass_secure = db.Column(db.String(255))
     phone_number = db.Column(db.Integer)
-    is_admin = db.Column(db.Boolean)
+    is_admin = db.Column(db.Boolean,default=False)
 
     orders  = db.relationship('Order', backref = 'user' , lazy = 'dynamic')
 
@@ -25,6 +30,10 @@ class User(db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
     
     def __repr__(self):
          return f'User {self.username}'
@@ -65,11 +74,10 @@ class Order(db.Model):
 
 class MyModelView(ModelView):
     def is_accessible(self):
-        return True
-        # if current_user.is_admin:
-        #     return current_user.is_authenticated
-        # else:
-        #     return False
+        if current_user.is_admin:
+            return current_user.is_authenticated
+        else:
+            return False
 
         
     def not_auth(self):
