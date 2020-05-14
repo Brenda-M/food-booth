@@ -24,7 +24,7 @@
 
 </head>
 
-<body style="background-image: url('https://bit.ly/2zEgVUc')" class="body" ></body>
+<body style="background-image: url('https://static01.nyt.com/images/2020/03/18/dining/16Rest1/16Rest1-videoSixteenByNineJumbo1600.jpg')" class="body" ></body>
 
         {% block navbar %}
         {% include "navbar.html" %}
@@ -52,6 +52,7 @@
 
 {% block scripts %}
 
+<script type="text/javascript" src="{{ url_for('static', filename='js/cart.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.1.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
