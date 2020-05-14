@@ -41,10 +41,12 @@ def create_app(config_name):
     from app.main import main
     from app.auth import auth
     from app.adm import adm
+    from app.reserve import reserve
 
     app.register_blueprint(main)
     app.register_blueprint(auth)
     app.register_blueprint(adm)
+    app.register_blueprint(reserve)
 
 
     login_manager.init_app(app)

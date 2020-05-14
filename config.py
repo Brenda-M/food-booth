@@ -4,7 +4,7 @@ class Config:
   '''
   config class to be inheritted by other class
   '''
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://hamisi:hamisi@localhost/sendit'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kennedy:Kennedy128@localhost/foodbooth'
   UPLOADED_PHOTOS_DEST ='app/static/photos'
   # SECRET_KEY = os.environ.get('SECRET_KEY')
   SECRET_KEY ='foodbooth'
@@ -29,7 +29,7 @@ class DevConfig(Config):
   '''
   development config class
   '''
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://hamisi:hamisi@localhost/sendit'
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kennedy:Kennedy128@localhost/foodbooth'
   FLASK_ADMIN_SWATCH ='cerulean'
   ##change the username to your username and password
   DEBUG = True
