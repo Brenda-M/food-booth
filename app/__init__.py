@@ -10,6 +10,7 @@ from flask_bootstrap import Bootstrap
 
 admin = Admin()
 db = SQLAlchemy()
+bootstrap = Bootstrap()
 mail = Mail()
 bootstrap = Bootstrap()
 login_manager = LoginManager()
@@ -34,6 +35,14 @@ def create_app(config_name):
     app.config.from_object(config_options[config_name])
 
 
+    # initialiaze the database
+    admin.init_app(app)
+    bootstrap.init_app(app)
+    db.init_app(app)
+    mail.init_app(app)
+    login_manager.init_app(app)
+    configure_uploads(app,photos)
+
 
 
     # register your blueprints here
@@ -42,19 +51,18 @@ def create_app(config_name):
     from app.adm import adm
     from app.reserve import reserve
     from app.deliv import deliv
+    from app.auth import auth
+    from app.adm import adm
 
     app.register_blueprint(main)
     app.register_blueprint(auth)
     app.register_blueprint(adm)
     app.register_blueprint(reserve)
     app.register_blueprint(deliv)
+    app.register_blueprint(auth)
+    app.register_blueprint(adm)
 
 
-    login_manager.init_app(app)
-    bootstrap.init_app(app)
-    db.init_app(app)
-    configure_uploads(app,photos)
-    mail.init_app(app)
   
 
 

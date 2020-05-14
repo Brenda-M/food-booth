@@ -4,19 +4,43 @@
 
 <div class="container">
   <h1> Menu page </h1>
-  {% for item in items %}
-  <div class="card">
-    <div class="card-header">
-      {{ item.name }}
+  <div class="row">
+    <div class="col-md-7">
+      {% for item in items %}
+      <div class="card">
+        <div class="card-header">
+          {{ item.name }}
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{ item.description }}</p>
+            <footer class="blockquote-footer"> Price: {{ item.price }}</footer> <button type="button"
+              class="btn btn-info btn-sm ml-1">Order</button></footer>
+          </blockquote>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    <div class="card-body">
-      <blockquote class="blockquote mb-0">
-        <p>{{ item.description }}</p>
-        <footer class="blockquote-footer"> Price: {{ item.price }}</footer> <button type="button" class="btn btn-danger btn-sm ml-1">Order</button></footer>
-      </blockquote>
+ 
+    <div class="col-md-5">
+      <div class="card">
+        {% for item in items %}
+        <div class="cart-item">
+          <div class="cart-row">
+            <div class="cart-item cart-column">
+              {{ item.name }}
+            </div>
+            <span class="cart-price cart-column">{{ item.price }}</span>
+            <div class="cart-quantity cart-column">
+                <input class="cart-quantity-input" type="number" value=1 min-value=1>
+                <button class="btn btn-danger" type="button">REMOVE</button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
-  {% endfor %}
-  </div>
+</div>
 
-  {% endblock %}
+{% endblock %}
