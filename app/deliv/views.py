@@ -13,6 +13,7 @@ def menu():
 
   return render_template('deliv/menu.html', title = "Food gallery", items=menus)
 
+<<<<<<< HEAD
 @deliv.route('/menu', methods=['POST'])
 def createOrder():
   cartItems = request.get_json()
@@ -36,6 +37,10 @@ def createOrder():
 
 
 @deliv.route('/delivery', methods=['GET', 'POST'])
+=======
+
+@deliv.route('/delivery')
+>>>>>>> 873249b... create an order route
 def deliv_info():
 
   form = Delivery()
