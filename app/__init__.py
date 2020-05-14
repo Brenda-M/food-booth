@@ -54,5 +54,7 @@ def create_app(config_name):
     db.init_app(app)
     configure_uploads(app,photos)
     mail.init_app(app)
+    from app.deliv import deliv
+
 
     return app
