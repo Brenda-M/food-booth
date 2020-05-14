@@ -1,5 +1,6 @@
 from flask import Flask
 from config import config_options
+from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
 from flask_uploads import UploadSet,configure_uploads,IMAGES
@@ -33,20 +34,20 @@ def create_app(config_name):
     app.config.from_object(config_options[config_name])
 
 
-    # initialiaze the database
-    db.init_app(app)
-    admin.init_app(app)
+
 
     # register your blueprints here
     from app.main import main
     from app.auth import auth
     from app.adm import adm
     from app.reserve import reserve
+    from app.deliv import deliv
 
     app.register_blueprint(main)
     app.register_blueprint(auth)
     app.register_blueprint(adm)
     app.register_blueprint(reserve)
+    app.register_blueprint(deliv)
 
 
     login_manager.init_app(app)
@@ -54,7 +55,9 @@ def create_app(config_name):
     db.init_app(app)
     configure_uploads(app,photos)
     mail.init_app(app)
-    from app.deliv import deliv
+  
+
+
 
 
     return app

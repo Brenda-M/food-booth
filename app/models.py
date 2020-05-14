@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from . import db,login_manager
 from flask_login import current_user, UserMixin
 from werkzeug.security import generate_password_hash,check_password_hash
@@ -6,6 +7,14 @@ from flask_admin.contrib.sqla import ModelView
 @login_manager.user_loader 
 def load_user(user_id):
     return User.query.get(int(user_id)) 
+=======
+from app import db, login_manager
+from flask_login import UserMixin
+>>>>>>> 0a369e4... add cart
+
+@login_manager.user_loader
+def load_user(user_id):
+	return User.query.get(int(user_id))
 
 class User(UserMixin,db.Model):
 	__tablename__ = 'users'
@@ -54,12 +63,6 @@ class Menu(db.Model):
 	description =  db.Column(db.String(255), index = True)
 	price = db.Column(db.Integer)
 	orders  = db.relationship('Order', backref = 'menu' , lazy = 'dynamic')
-	cartitems = db.relationship('CartItem', backref='menu', lazy='dynamic')
-
-class CartItem(db.Model):
-	__tablename__="cartitems"
-	id = db.Column(db.Integer, primary_key=Tru)
-	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 
 
 class Service(db.Model):
@@ -79,6 +82,7 @@ class Order(db.Model):
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
 
+<<<<<<< HEAD
 
     
 
@@ -95,3 +99,5 @@ class MyModelView(ModelView):
 			
 	def not_auth(self):
 		return 'You are not authorized to the admin dashboard'
+=======
+>>>>>>> 0a369e4... add cart
