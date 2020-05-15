@@ -15,15 +15,22 @@
 <div class="container">
   <h1> Menu page </h1>
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7 ">
       {% for item in items %}
+<<<<<<< HEAD
       <div class="card">
         <div class="card-header">
 >>>>>>> 859a5c0... add a cart remove item function
+=======
+
+      <div class="card shop-item" id="{{ item.id }}">
+        <div class="card-header shop-item-title">
+>>>>>>> c995e96... add a cart to support multiple orders
           {{ item.name }}
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <p class="shop-item-description">{{ item.description }}</p>
             <footer class="blockquote-footer shop-item-price"> {{ item.price }}</footer> <button type="button"
@@ -33,10 +40,16 @@
             <footer class="blockquote-footer"> Price: {{ item.price }}</footer> <button type="button"
               class="btn btn-info btn-sm ml-1">Order</button></footer>
 >>>>>>> 859a5c0... add a cart remove item function
+=======
+            <p class="shop-item-description">{{ item.description }}</p>
+            <footer class="blockquote-footer shop-item-price"> {{ item.price }}</footer> <button type="button"
+              class="btn btn-info btn-sm ml-1 shop-item-button">Order</button></footer>
+>>>>>>> c995e96... add a cart to support multiple orders
           </blockquote>
         </div>
       </div>
       {% endfor %}
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     </div>
@@ -55,25 +68,29 @@
         </div>
         <button class="btn btn-primary btn-purchase" type="button" onclick="createOrder()">Place Order</button>
 =======
+=======
+
+>>>>>>> c995e96... add a cart to support multiple orders
     </div>
- 
+
     <div class="col-md-5">
+
       <div class="card">
-        {% for item in items %}
-        <div class="cart-item">
-          <div class="cart-row">
-            <div class="cart-item cart-column">
-              {{ item.name }}
-            </div>
-            <span class="cart-price cart-column">{{ item.price }}</span>
-            <div class="cart-quantity cart-column">
-                <input class="cart-quantity-input" type="number" value=1 min-value=1>
-                <button class="btn btn-danger" type="button">REMOVE</button>
-            </div>
-          </div>
+        <div class="card-header"><h1 class="text-center" style="font-weight: bold;">Cart</h1></div>
+        
+        <div class="cart-items">
+
         </div>
+        <div class="cart-total text-center">
+          <strong class="cart-total-title">Total:</strong>
+          <span class="cart-total-price">0</span>
+        </div>
+<<<<<<< HEAD
         {% endfor %}
 >>>>>>> 859a5c0... add a cart remove item function
+=======
+        <button class="btn btn-primary btn-purchase" type="button" onclick="createOrder()">Place Order</button>
+>>>>>>> c995e96... add a cart to support multiple orders
       </div>
     </div>
   </div>

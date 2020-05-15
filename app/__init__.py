@@ -3,7 +3,10 @@ from config import config_options
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
+<<<<<<< HEAD
 from flask_bootstrap import Bootstrap
+=======
+>>>>>>> c995e96... add a cart to support multiple orders
 # from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
 from flask_login import LoginManager
@@ -44,6 +47,14 @@ def create_app(config_name):
     bootstrap.init_app(app)
   
 
+<<<<<<< HEAD
+=======
+    from .models import Service
+
+
+
+    # register your blueprints here
+>>>>>>> c995e96... add a cart to support multiple orders
     from app.main import main
     from app.adm import adm
     from app.reserve import reserve
@@ -72,5 +83,12 @@ def create_app(config_name):
     app.register_blueprint(auth)
     app.register_blueprint(adm)
 >>>>>>> 859a5c0... add a cart remove item function
+
+    # create initial db values
+    @app.before_first_request
+    def setup():
+        db.session.add(Service(name='delivery', price='200'))
+        db.session.add(Service(name='reservation', price='250'))
+        db.session.commit()
 
     return app
