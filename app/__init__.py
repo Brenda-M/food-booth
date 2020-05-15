@@ -10,6 +10,7 @@ from flask_login import LoginManager
 
 admin = Admin()
 db = SQLAlchemy()
+bootstrap = Bootstrap()
 mail = Mail()
 login_manager = LoginManager()
 bootstrap = Bootstrap()
@@ -49,6 +50,7 @@ def create_app(config_name):
 
     # register your blueprints here
     from app.main import main
+    from app.deliv import deliv
     from app.auth import auth
     from app.adm import adm
     from app.reserve import reserve
@@ -57,6 +59,7 @@ def create_app(config_name):
     from app.adm import adm
 
     app.register_blueprint(main)
+    app.register_blueprint(deliv)
     app.register_blueprint(auth)
     app.register_blueprint(adm)
     app.register_blueprint(reserve)

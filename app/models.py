@@ -55,12 +55,6 @@ class Menu(db.Model):
 	description =  db.Column(db.String(255), index = True)
 	price = db.Column(db.Integer)
 	orders  = db.relationship('Order', backref = 'menu' , lazy = 'dynamic')
-	cartitems = db.relationship('CartItem', backref='menu', lazy='dynamic')
-
-class CartItem(db.Model):
-	__tablename__="cartitems"
-	id = db.Column(db.Integer, primary_key=True)
-	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 
 
 class Service(db.Model):

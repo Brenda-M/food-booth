@@ -73,3 +73,12 @@ body{
 
 
 
+.card{
+  background-color: rgb(202, 236, 236);
+  color: black;
+  margin-bottom: 20px;
+}
+
+.cart-items{
+  margin-left: 15px;
+}
