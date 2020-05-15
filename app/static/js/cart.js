@@ -108,7 +108,7 @@ function updateCartTotal() {
     console.log(typeof(total))
 
     // total = total + quantity
-    total = total + price
+    total = total + (quantity * price)
     
     console.log(typeof(total))
   }
