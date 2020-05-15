@@ -2,22 +2,22 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6"id="login">
-
-                <h3 class="text-center"><strong>Log In</strong></h3>
-                {% for message in get_flashed_messages() %}
-                <div class="alert alert-danger">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ message }}
+        <div class="card sign-up">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-4"id="login">
+                    <h3 class="text-center"><strong>Log In</strong></h3>
+                    {% for message in get_flashed_messages() %}
+                    <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                    </div>
+                    {% endfor %}
+    
+                    {{ wtf.quick_form(form) }}
                 </div>
-                {% endfor %}
-
-                {{ wtf.quick_form(form) }}
+                <div class="col-md-3"></div>    
             </div>
-            <div class="col-md-3"></div>
-            
-        </div>
+        </div>  
     </div>
 {% endblock %}

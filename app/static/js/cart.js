@@ -28,7 +28,6 @@ function ready(){
 }
 
 function purchaseClicked(){
-  alert('Thank you for your purchase')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -71,16 +70,19 @@ function addItemToCart(title, price){
     }
   }
   let  cartRowContents = `
-      <div class="cart-row">
-        <div class="cart-item-title cart-column">
+
+      <div class=" row cart-row">
+        <div class="cart-item-title cart-column col-sm-5">
           ${title}
         </div>
-        <span class="cart-price cart-column">${ price }</span>
-        <div class="cart-quantity cart-column">
+        <span class="cart-price cart-column col-sm-3">${ price }</span>
+        <div class="cart-quantity cart-column col-sm-4">
           <input class="cart-quantity-input" type="number" value="1" min="1">
-          <button class="btn btn-danger" type="button">REMOVE</button>
+          <button class="btn btn-sm btn-danger" type="button">Remove</button>
         </div>
-    </div>
+        <hr> 
+      </div>
+     
   `
   cartRow.innerHTML = cartRowContents
   cartItems.append(cartRow)
