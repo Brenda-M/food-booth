@@ -59,7 +59,7 @@ class Menu(db.Model):
 
 class CartItem(db.Model):
 	__tablename__="cartitems"
-	id = db.Column(db.Integer, primary_key=Tru)
+	id = db.Column(db.Integer, primary_key=True)
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 
 
@@ -80,13 +80,6 @@ class Order(db.Model):
 	user_id =  db.Column(db.Integer, db.ForeignKey('users.id'))
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
-
-<<<<<<< HEAD
-=======
-  
-
->>>>>>> c995e96... add a cart to support multiple orders
-# Admin
 
 
 class MyModelView(ModelView):
