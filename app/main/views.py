@@ -1,13 +1,15 @@
-from flask import render_template
+from flask import render_template,url_for
 from . import main
+from ..models import Service
+from .. import db,photos
 
 
 # your views go here i.e for home,about
-@main.route("/")
+@main.route('/')
 def index():
-    return "<h1>Hello World</h1>"
-
-
+    services = Service
+    return render_template('index.html', services = services)
+    
 @main.route("/about")
 def about():
-    pass
+    return render_template('about.html', about = about)

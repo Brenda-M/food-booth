@@ -1,17 +1,14 @@
-<!-- {% extends 'base.html'%} -->
+{% extends 'base.html'%}
 
 {% block content %}
     <div class="container">
-      <div class="col-md-9"><h1>Welcome to food-booth</h1></div>
-      <div class="row">
-        <div class="col-md-8">
-          {% for service in services.items %}
-          <div class="container bg mb-4">
-            <hr>
-            <p>{{service.user.username | service}}</p>
-            
-          </div>
-
-        </div>
-      </div>
+      <h2 class="text-center" id="title">Welcome to food Booth</h2>
+      <ul>
+        <h3 class="nav-item"><a class="nav-link" data-toggle="tab" href="#all">All services</a></h3>
+        <li class=" nav-item"><a class=" nav-link" data-toggle="tab" href="#name">Users</a></li>
+        <li class=" nav-item"><a class=" nav-link" data-toggle="tab" href="#price">Menu</a></li>
+        <li class=" nav-item"><a class=" nav-link" data-toggle="tab" href="#service">Service</a></li>
+        <li class=" nav-item"><a class=" nav-link" data-toggle="tab" href="#orders">Orders</a></li>
+      </ul>
     </div>
+{% endblock%}

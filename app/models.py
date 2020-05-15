@@ -56,6 +56,7 @@ class Service(db.Model):
     name =  db.Column(db.String(255), index = True)
     price = db.Column(db.Integer)
     orders  = db.relationship('Order', backref = 'service' , lazy = 'dynamic')
+
     
 
 class Order(db.Model):
