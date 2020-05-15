@@ -75,8 +75,7 @@ class Order(db.Model):
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
 
-
-    
+  
 
 # Admin
 
