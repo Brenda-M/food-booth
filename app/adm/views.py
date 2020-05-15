@@ -20,6 +20,6 @@ def admin_signup():
         user = User(username=form.username.data, email = form.email.data, password=form.password.data ,is_admin =True)
         user.save()
         # mail_message("Welcome to Food-Booth","email/welcome",user.email,user=user)
-        flash('Admin account created successfully')
+        flash('Admin account created successfully', 'success')
         return  redirect(url_for('auth.login'))
     return render_template('admin_signup.html',registration_form=form )

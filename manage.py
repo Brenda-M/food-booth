@@ -5,7 +5,7 @@ from app.models import User, Address, Menu, Service, Order
 
 
 #creating app instance
-app = create_app('development')
+app = create_app('production')
 
 manager = Manager(app) 
 Migrate = Migrate(app, db)

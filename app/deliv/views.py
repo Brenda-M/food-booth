@@ -1,6 +1,6 @@
 from . import deliv
 from app import db
-from flask import render_template, url_for, redirect, request
+from flask import render_template, url_for, redirect, request, flash
 from flask_login import login_required, current_user, login_user, logout_user
 from app.models import Menu, Address, User, Service, Order
 from .forms import Delivery
@@ -36,7 +36,7 @@ def createOrder():
   return render_template('deliv/menu.html', title = "Food gallery", items=menus)
 
 
-@deliv.route('/delivery', methods=['GET', 'POST'])
+@deliv.route('/delivery', methods=(['GET', 'POST']))
 def deliv_info():
 
   form = Delivery()
@@ -45,9 +45,8 @@ def deliv_info():
     deliv_address = Address(phonenumber=current_user.phone_number, street_address=form.street_address.data, postal_code=form.postal_code.data, city=form.city.data)
     db.session.add(deliv_address)
     db.session.commit()
-
   current_user.phone_number = form.phone_number.data 
-
+  
   users = User.query.all()
   for user in users:
     if user.email != current_user.email:
@@ -56,6 +55,8 @@ def deliv_info():
     flash('Your order has been received! You will receive a confirmation email shortly', 'success')
   
     return redirect(url_for('.menu'))
-  
-  return render_template('deliv/delivery_info.html', title="Delivery Details", form=form)
 
+ 
+  
+  
+  return render_template('deliv/delivery-info.html', title="Delivery Details", form=form)

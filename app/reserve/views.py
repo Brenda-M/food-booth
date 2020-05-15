@@ -13,7 +13,9 @@ def reserve():
         new_order = Order(user = current_user )
         db.session.add(new_order)
         db.session.commit()
-        flash("your table has been reserved,kindly check your email for more details")
         return  redirect(url_for('main.index'))
+        
+    flash("your table has been reserved,kindly check your email for more details")
+        
                           
     return render_template('reserve.html',form=form)
