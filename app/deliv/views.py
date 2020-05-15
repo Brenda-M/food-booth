@@ -1,23 +1,10 @@
 from . import deliv
-<<<<<<< HEAD
-<<<<<<< HEAD
-from app import db
-from flask import render_template, url_for, redirect, request, flash
-=======
 from app import db
 from flask import render_template, url_for, redirect, request
->>>>>>> c995e96... add a cart to support multiple orders
 from flask_login import login_required, current_user, login_user, logout_user
 from app.models import Menu, Address, User, Service, Order
 from .forms import Delivery
 from app.email import order_email
-=======
-from flask import render_template, url_for, redirect
-from flask_login import login_required
-from app.models import Menu, Address, User
-from .forms import Delivery
-from .email import order_email
->>>>>>> 3b0eb66... populate the form with the users phone number
 
 @deliv.route('/menu')
 def menu():
@@ -27,9 +14,9 @@ def menu():
   return render_template('deliv/menu.html', title = "Food gallery", items=menus)
 
 @deliv.route('/menu', methods=['POST'])
+@login_required
 def createOrder():
   cartItems = request.get_json()
-<<<<<<< HEAD
 
   # get delivery service id
   delivery_service = db.session.query(Service).filter_by(name="delivery")
@@ -49,27 +36,6 @@ def createOrder():
   return render_template('deliv/menu.html', title = "Food gallery", items=menus)
 
 
-=======
-
-  # get delivery service id
-  delivery_service = db.session.query(Service).filter_by(name="delivery")
-  delivery_id =  delivery_service.first().id
-
-  orders = []
-
-  # save order
-  for item in cartItems:
-    item_id = item.get(id)
-    orders.append(Order(user_id=current_user.id, menu_id=item_id, service_id=delivery_id))
-
-  db.session.add_all(orders)
-  db.session.commit()
-
-  menus = Menu.query.all()
-  return render_template('deliv/menu.html', title = "Food gallery", items=menus)
-
-
->>>>>>> c995e96... add a cart to support multiple orders
 @deliv.route('/delivery', methods=['GET', 'POST'])
 def deliv_info():
 

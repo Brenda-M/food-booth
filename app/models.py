@@ -73,14 +73,6 @@ class Order(db.Model):
 	menu_id = db.Column(db.Integer, db.ForeignKey('menus.id'))
 	service_id =  db.Column(db.Integer, db.ForeignKey('services.id'))
 
-<<<<<<< HEAD
-=======
-  
-
-# Admin
-
->>>>>>> c995e96... add a cart to support multiple orders
-
 class MyModelView(ModelView):
 	def is_accessible(self):
 		if current_user.is_admin:
@@ -90,7 +82,7 @@ class MyModelView(ModelView):
 
 			
 	def not_auth(self):
-		return 'You are not authorized to the admin dashboard
+		return 'You are not authorized to the admin dashboard'
 
 	def requestOrder(user, item, service):
 		placeOrder = Order(user=user_id, service=service_id, item=menu_id)

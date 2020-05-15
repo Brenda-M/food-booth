@@ -2,75 +2,26 @@
 
 {% block content %}
 
-<<<<<<< HEAD
-<div class="container card holder">
-  <h1 class="text-center" style="color: black; font-weight: bold;"> Menu </h1>
-  <div class="row">
-    <div class="col-md-7 ">
-      {% for item in items %}
-
-      <div class="card shop-item all-menu" id="{{ item.id }}">
-        <div class="card-header shop-item-title">
-=======
 <div class="container">
   <h1> Menu page </h1>
   <div class="row">
     <div class="col-md-7 ">
       {% for item in items %}
-<<<<<<< HEAD
-      <div class="card">
-        <div class="card-header">
->>>>>>> 859a5c0... add a cart remove item function
-=======
 
       <div class="card shop-item" id="{{ item.id }}">
         <div class="card-header shop-item-title">
->>>>>>> c995e96... add a cart to support multiple orders
           {{ item.name }}
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-<<<<<<< HEAD
-<<<<<<< HEAD
             <p class="shop-item-description">{{ item.description }}</p>
             <footer class="blockquote-footer shop-item-price"> {{ item.price }}</footer> <button type="button"
               class="btn btn-info btn-sm ml-1 shop-item-button">Order</button></footer>
-=======
-            <p>{{ item.description }}</p>
-            <footer class="blockquote-footer"> Price: {{ item.price }}</footer> <button type="button"
-              class="btn btn-info btn-sm ml-1">Order</button></footer>
->>>>>>> 859a5c0... add a cart remove item function
-=======
-            <p class="shop-item-description">{{ item.description }}</p>
-            <footer class="blockquote-footer shop-item-price"> {{ item.price }}</footer> <button type="button"
-              class="btn btn-info btn-sm ml-1 shop-item-button">Order</button></footer>
->>>>>>> c995e96... add a cart to support multiple orders
           </blockquote>
         </div>
       </div>
       {% endfor %}
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-    </div>
-
-    <div class="col-md-5">
-
-      <div class="card all-menu">
-        <div class="card-header"><h1 class="text-center" style="font-weight: bold;">Cart</h1></div>
-        
-        <div class="card-body cart-items">
-
-        </div>
-        <div class="cart-total text-center">
-          <strong class="cart-total-title">Total:</strong>
-          <span class="cart-total-price">0</span>
-        </div>
-        <button class="btn btn-primary btn-purchase" type="button" onclick="createOrder()">Place Order</button>
-=======
-=======
-
->>>>>>> c995e96... add a cart to support multiple orders
     </div>
 
     <div class="col-md-5">
@@ -85,19 +36,10 @@
           <strong class="cart-total-title">Total:</strong>
           <span class="cart-total-price">0</span>
         </div>
-<<<<<<< HEAD
-        {% endfor %}
->>>>>>> 859a5c0... add a cart remove item function
-=======
         <button class="btn btn-primary btn-purchase" type="button" onclick="createOrder()">Place Order</button>
->>>>>>> c995e96... add a cart to support multiple orders
       </div>
     </div>
   </div>
 </div>
 
-<<<<<<< HEAD
 {% endblock %}
-=======
-{% endblock %}
->>>>>>> 859a5c0... add a cart remove item function

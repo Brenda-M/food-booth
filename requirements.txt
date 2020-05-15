@@ -36,5 +36,9 @@ six==1.14.0
 SQLAlchemy==1.3.16
 urllib3==1.25.9
 visitor==0.1.3
+<<<<<<< HEAD
 Werkzeug==0.15.3
+=======
+Werkzeug==0.16.1
+>>>>>>> e28be4d0bb56225db64c0bc85b84bfccb07037c0
 WTForms==2.3.1
