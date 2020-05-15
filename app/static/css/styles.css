@@ -15,12 +15,8 @@ body{
   background-repeat: no-repeat; 
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e28be4d0bb56225db64c0bc85b84bfccb07037c0
+
 .all-menu{
-  background-color: #cbf3f0;
   color: black;
   margin-bottom: 20px;
   padding: 20px;
@@ -76,11 +72,6 @@ body{
 }
 
 
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e28be4d0bb56225db64c0bc85b84bfccb07037c0
 .card{
   background-color: rgb(202, 236, 236);
   color: black;
@@ -90,7 +81,3 @@ body{
 .cart-items{
   margin-left: 15px;
 }
-<<<<<<< HEAD
->>>>>>> 859a5c0... add a cart remove item function
-=======
->>>>>>> e28be4d0bb56225db64c0bc85b84bfccb07037c0
