@@ -16,7 +16,4 @@ def reserve():
         flash("your table has been reserved,kindly check your email for more details")
         return  redirect(url_for('main.index'))
                           
-                          
-    
-    
     return render_template('reserve.html',form=form)

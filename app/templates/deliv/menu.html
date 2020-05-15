@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container card all-menu" style="background-color: #feeafa;">
+  <h1 class="text-center" style="font-weight: bold;"> Menu page </h1>
+  <div class="row">
+    <div class="col-md-7 ">
+      {% for item in items %}
+
+      <div class="card shop-item" id="{{ item.id }}">
+        <div class="card-header shop-item-title">
+          {{ item.name }}
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p class="shop-item-description">{{ item.description }}</p>
+            <footer class="blockquote-footer shop-item-price"> {{ item.price }}</footer> <button type="button"
+              class="btn btn-info btn-sm ml-1 shop-item-button">Order</button></footer>
+          </blockquote>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+    <div class="col-md-5">
+
+      <div class="card">
+        <div class="card-header"><h1 class="text-center" style="font-weight: bold;">Cart</h1></div>
+        
+        <div class="cart-items">
+
+        </div>
+        <div class="cart-total text-center">
+          <strong class="cart-total-title">Total:</strong>
+          <span class="cart-total-price">0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button" onclick="createOrder()">Place Order</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

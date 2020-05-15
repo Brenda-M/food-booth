@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
       <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
@@ -22,16 +23,30 @@
     
     <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
     {% endblock %}
-</head>
-
 
 </head>
 
-<body style="background-image: url('https://bit.ly/2zEgVUc')" class="body" ></body>
 
+<body style="background-image: url('https://static01.nyt.com/images/2020/03/18/dining/16Rest1/16Rest1-videoSixteenByNineJumbo1600.jpg')" class="body" >
+  
         {% block navbar %}
         {% include "navbar.html" %}
         {% endblock %}
+
+
+        <div class="container">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+          {% for category, message in messages %}
+          <div class="alert alert-{{category}}">
+            {{ message }}
+          </div>
+          {% endfor %}
+
+          {% endif %}
+          {% endwith %}
+        </div>
+
 
 
         {% block content %}
@@ -40,6 +55,7 @@
 
 {% block scripts %}
 
+<script type="text/javascript" src="{{ url_for('static', filename='js/cart.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.4.1.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -47,5 +63,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/js/mdb.min.js"></script>
 {% endblock %}
-</body>
+
+
 </html>
