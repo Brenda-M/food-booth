@@ -3,7 +3,7 @@ from config import config_options
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
-from flask_uploads import UploadSet,configure_uploads,IMAGES
+# from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
@@ -16,7 +16,7 @@ bootstrap = Bootstrap()
 login_manager = LoginManager()
 login_manager.session_protection ='strong'
 login_manager.login_view = 'auth.login'
-photos = UploadSet('photos',IMAGES)
+# photos = UploadSet('photos',IMAGES)
 
 
 def create_app(config_name):
@@ -44,6 +44,9 @@ def create_app(config_name):
     configure_uploads(app,photos)
 
 
+    from .models import Service
+
+
 
     # register your blueprints here
     from app.main import main
@@ -62,10 +65,11 @@ def create_app(config_name):
     app.register_blueprint(auth)
     app.register_blueprint(adm)
 
-
-  
-
-
-
+    # create initial db values
+    @app.before_first_request
+    def setup():
+        db.session.add(Service(name='delivery', price='200'))
+        db.session.add(Service(name='reservation', price='250'))
+        db.session.commit()
 
     return app
